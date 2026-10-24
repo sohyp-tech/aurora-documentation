@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora.css - Documentation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #12121a;
+            --bg-sidebar: #181822;
+            --bg-card: #1c1c26;
+            --text-main: #e2e2e8;
+            --text-muted: #9ca3af;
+            --accent-purple: #6a11cb;
+            --accent-blue: #2575fc;
+            --border-color: #2a2a35;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h1 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--bg-card);
+            color: #ffffff;
+        }
+
+        .sidebar a.active {
+            background-color: rgba(106, 17, 203, 0.15);
+            color: #a78bfa;
+            border-left: 3px solid var(--accent-purple);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: 260px;
+            padding: 50px 80px;
+            flex: 1;
+            max-width: 1000px;
+        }
+
+        section {
+            margin-bottom: 70px;
+            scroll-margin-top: 50px; /* مسافة عشان الهيدر لما تنزل باللينك */
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.desc {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* --- Code Block --- */
+        .code-block {
+            background-color: #0d0d14;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            color: #6ee7b7;
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+
+        /* --- Tables --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 15px;
+            color: #cbd5e1;
+        }
+
+        td code {
+            background-color: var(--bg-card);
+            padding: 4px 8px;
+            border-radius: 6px;
+            color: #a78bfa;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* --- Scrollbar --- */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); }
+    </style>
+</head>
+<body>
+
+    <!-- القائمة الجانبية -->
+    <aside class="sidebar">
+        <h1>🌌 Aurora CSS</h1>
+        <nav>
+            <a href="#intro" class="nav-link">Introduction</a>
+            <a href="#layout" class="nav-link">Layout & Flexbox</a>
+            <a href="#spacing" class="nav-link">Spacing</a>
+            <a href="#typography" class="nav-link">Typography</a>
+            <a href="#borders" class="nav-link">Borders & Radius</a>
+            <a href="#sizing" class="nav-link">Width & Height</a>
+            <a href="#effects" class="nav-link">Effects & Filters</a>
+        </nav>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p class="desc">A modern, ultra-lightweight, utility-first CSS framework. Build beautiful interfaces without fixed colors.</p>
+            <p style="color: #cbd5e1; margin-bottom: 10px;">Add the stylesheet to your HTML head:</p>
+            <div class="code-block">
+                &lt;link rel="stylesheet" href="https://sohyp-tech.github.io/aurora/aurora.css"&gt;
+            </div>
+        </section>
+
+        <section id="layout">
+            <h2>Layout & Flexbox</h2>
+            <p class="desc">Utilities to control the structure and alignment of elements.</p>
+            <table>
+                <thead>
+                    <tr><th>Class</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>a-flex</code></td><td>Sets display to flex.</td></tr>
+                    <tr><td><code>a-center</code></td><td>Centers content horizontally & vertically.</td></tr>
+                    <tr><td><code>a-items-center</code></td><td>Aligns items vertically.</td></tr>
+                    <tr><td><code>a-content-center</code></td><td>Aligns content horizontally.</td></tr>
+                    <tr><td><code>a-content-start</code></td><td>Aligns content to start.</td></tr>
+                    <tr><td><code>a-content-end</code></td><td>Aligns content to end.</td></tr>
+                    <tr><td><code>a-content-between</code></td><td>Pushes items to the edges.</td></tr>
+                    <tr><td><code>a-content-around</code></td><td>Distributes items with space around.</td></tr>
+                    <tr><td><code>a-flex-col</code></td><td>Sets flex direction to column.</td></tr>
+                    <tr><td><code>a-flex-row</code></td><td>Sets flex direction to row.</td></tr>
+                    <tr><td><code>a-flex-wrap</code></td><td>Allows items to wrap.</td></tr>
+                    <tr><td><code>a-gap-{2|4|6|8|10}</code></td><td>Sets the gap between items.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="spacing">
+            <h2>Spacing (Padding & Margin)</h2>
+            <p class="desc">Spacing follows a simple pixel-based scale: 0, 2, 4, 6, 8, 10.</p>
+            <table>
+                <thead>
+                    <tr><th>Class Pattern</th><th>Example</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>a-p-{size}</code></td><td><code>a-p-4</code></td><td>Padding on all sides.</td></tr>
+                    <tr><td><code>a-p-top-{size}</code></td><td><code>a-p-top-8</code></td><td>Padding on the top.</td></tr>
+                    <tr><td><code>a-p-bottom-{size}</code></td><td><code>a-p-bottom-8</code></td><td>Padding on the bottom.</td></tr>
+                    <tr><td><code>a-p-left-{size}</code></td><td><code>a-p-left-8</code></td><td>Padding on the left.</td></tr>
+                    <tr><td><code>a-p-right-{size}</code></td><td><code>a-p-right-8</code></td><td>Padding on the right.</td></tr>
+                    <tr><td><code>a-mg-{size}</code></td><td><code>a-mg-2</code></td><td>Margin on all sides.</td></tr>
+                    <tr><td><code>a-mg-top-{size}</code></td><td><code>a-mg-top-8</code></td><td>Margin on the top.</td></tr>
+                    <tr><td><code>a-mg-bottom-{size}</code></td><td><code>a-mg-bottom-8</code></td><td>Margin on the bottom.</td></tr>
+                    <tr><td><code>a-mg-left-{size}</code></td><td><code>a-mg-left-8</code></td><td>Margin on the left.</td></tr>
+                    <tr><td><code>a-mg-right-{size}</code></td><td><code>a-mg-right-8</code></td><td>Margin on the right.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="typography">
+            <h2>Typography</h2>
+            <p class="desc">Control text colors, weights, and fonts.</p>
+            <table>
+                <thead>
+                    <tr><th>Class</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>a-text-color</code></td><td>Sets text color using var(--text-color).</td></tr>
+                    <tr><td><code>a-text-family</code></td><td>Sets font family using var(--font-family).</td></tr>
+                    <tr><td><code>a-text-weight-{100-900}</code></td><td>Sets font weight (e.g., 100, 400, 700).</td></tr>
+                    <tr><td><code>a-text-weight-bold</code></td><td>Sets font weight to bold.</td></tr>
+                    <tr><td><code>a-text-weight-bolder</code></td><td>Sets font weight to bolder.</td></tr>
+                    <tr><td><code>a-text-weight-inherit</code></td><td>Inherits font weight from parent.</td></tr>
+                    <tr><td><code>a-text-weight-initial</code></td><td>Sets font weight to initial.</td></tr>
+                    <tr><td><code>a-text-shadow</code></td><td>Applies text shadow using var(--ts).</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="borders">
+            <h2>Borders & Radius</h2>
+            <p class="desc">Utilities for borders and rounded corners.</p>
+            <table>
+                <thead>
+                    <tr><th>Class</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>border-solid{1-5}</code></td><td>Applies a solid border (e.g., border-solid1).</td></tr>
+                    <tr><td><code>border-dashed{1-5}</code></td><td>Applies a dashed border.</td></tr>
+                    <tr><td><code>radius-{2-20}</code></td><td>Applies border-radius (e.g., radius-8).</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="sizing">
+            <h2>Width & Height</h2>
+            <p class="desc">Control the dimensions of elements.</p>
+            <table>
+                <thead>
+                    <tr><th>Class</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>a-w</code></td><td>Sets width to var(--width).</td></tr>
+                    <tr><td><code>a-w-full</code></td><td>Sets width to 100%.</td></tr>
+                    <tr><td><code>a-w-half</code></td><td>Sets width to 50%.</td></tr>
+                    <tr><td><code>a-h</code></td><td>Sets height to var(--height).</td></tr>
+                    <tr><td><code>a-h-full</code></td><td>Sets height to 100%.</td></tr>
+                    <tr><td><code>a-h-half</code></td><td>Sets height to 50%.</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="effects">
+            <h2>Effects & Filters</h2>
+            <p class="desc">Shadows, opacities, and backdrop filters.</p>
+            <table>
+                <thead>
+                    <tr><th>Class</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>a-box-shadow</code></td><td>Applies a box shadow using var(--bs).</td></tr>
+                    <tr><td><code>a-opacity-100</code></td><td>Sets opacity to 1.</td></tr>
+                    <tr><td><code>a-opacity-75</code></td><td>Sets opacity to 0.75.</td></tr>
+                    <tr><td><code>a-opacity-50</code></td><td>Sets opacity to 0.50.</td></tr>
+                    <tr><td><code>a-opacity-25</code></td><td>Sets opacity to 0.25.</td></tr>
+                    <tr><td><code>a-bd-filter</code></td><td>Applies backdrop blur using var(--blur-num).</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            Aurora CSS © 2024 - Built with Aurora CSS by Sohyp Khaled.
+        </footer>
+
+    </main>
+
+    <!-- سكريبت صغير جداً عشان يخلي اللينك النشط يتلون -->
+    <script>
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
